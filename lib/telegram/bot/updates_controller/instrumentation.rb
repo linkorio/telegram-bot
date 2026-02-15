@@ -8,9 +8,10 @@ module Telegram
       module Instrumentation
         extend ActiveSupport::Concern
 
-        included do
-          config_accessor :logger
-        end
+        # included do
+        #   config_accessor :logger
+        # end
+        include AbstractController::Logger
 
         class << self
           def instrument(action, *args, &block)
